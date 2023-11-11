@@ -17,7 +17,10 @@ async function processLineByLine() {
     const fileStream = fs.createReadStream('emoji-test.txt');
     let group = 'N/A';
     let subgroup = 'N/A';
-    const data = [];
+    const data = {
+        emojis: [],
+        groups: {},
+    };
 
     const rl = readline.createInterface({
         input: fileStream,
@@ -31,15 +34,17 @@ async function processLineByLine() {
         // console.log(`Line from file: ${line}`);
         if (line.includes('# group: ')) {
             group = getGroupName(line, '# group: ');
+            data.groups[group] = []
             // console.log(`group: ${group}`);
         }
         if (line.includes('# subgroup: ')) {
             subgroup = getGroupName(line, '# subgroup: ');
+            data.groups[group].push(subgroup)
             // console.log(`subgroup: ${subgroup}`);
         }
         if (line.includes('; fully-qualified')) {
             const obj = getObjectFromLine(line, group, subgroup)
-            data.push(obj);
+            data.emojis.push(obj);
             // console.log(`Line from file: ${JSON.stringify(obj)}`);
         }
     }
