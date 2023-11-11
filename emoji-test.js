@@ -1,8 +1,13 @@
 const fs = require('fs');
 const readline = require('readline');
 
-let group = 'N/A';
-let subgroup = 'N/A';
+function getObjectFromLine(line, group, subgroup) {
+    const [head, tail] = line.split('; fully-qualified     # ')
+    const code = head.trim()
+    const [emoji, since, ...rest] = tail.split(' ')
+    const description = rest.join(' ')
+    return { code, emoji, since, description }
+}
 
 function getGroupName(line, groupType) {
     return line.split(groupType)[1]
@@ -10,6 +15,8 @@ function getGroupName(line, groupType) {
 
 async function processLineByLine() {
     const fileStream = fs.createReadStream('emoji-test.txt');
+    let group = 'N/A';
+    let subgroup = 'N/A';
 
     const rl = readline.createInterface({
         input: fileStream,
@@ -23,15 +30,16 @@ async function processLineByLine() {
         // console.log(`Line from file: ${line}`);
         if (line.includes('# group: ')) {
             group = getGroupName(line, '# group: ');
-            console.log(`group: ${group}`);
+            // console.log(`group: ${group}`);
         }
         if (line.includes('# subgroup: ')) {
             subgroup = getGroupName(line, '# subgroup: ');
-            console.log(`subgroup: ${subgroup}`);
+            // console.log(`subgroup: ${subgroup}`);
         }
-        // if (line.includes('; fully-qualified')) {
-        //     console.log(`Line from file: ${line}`);
-        // }
+        if (line.includes('; fully-qualified')) {
+            const obj = getObjectFromLine(line, group, subgroup)
+            console.log(`Line from file: ${JSON.stringify(obj)}`);
+        }
     }
 }
 
