@@ -1,6 +1,24 @@
 const fs = require('fs');
 const readline = require('readline');
 
+function comparePartials(a, b) {
+    if (a === b) {
+        return 0;
+    }
+    if (a.length < b.length) {
+        return -1
+    }
+    if (a.length > b.length) {
+        return 1
+    }
+    if (a < b) {
+        return -1
+    }
+    if (a > b) {
+        return 1
+    }
+}
+
 function getObjectFromLine(line, group, subgroup) {
     const [head, tail] = line.split('; fully-qualified     # ')
     const code = head.trim()
@@ -20,6 +38,7 @@ async function processLineByLine() {
     const data = {
         emojis: [],
         groups: {},
+        versions: [],
     };
 
     const rl = readline.createInterface({
@@ -44,9 +63,13 @@ async function processLineByLine() {
         if (line.includes('; fully-qualified')) {
             const obj = getObjectFromLine(line, group, subgroup)
             data.emojis.push(obj);
+            data.versions.push(obj.since)
             // console.log(`Line from file: ${JSON.stringify(obj)}`);
         }
     }
+
+    // only different versions, sorted
+    data.versions = Array.from(new Set(data.versions)).sort(comparePartials);
 
     fs.writeFile("emoji.json", JSON.stringify(data), function (err) {
         if (err) throw err;
