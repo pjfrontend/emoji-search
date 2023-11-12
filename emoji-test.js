@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
-function comparePartials(a, b) {
+function sortVersions(a, b) {
     if (a === b) {
         return 0;
     }
@@ -19,19 +19,21 @@ function comparePartials(a, b) {
     }
 }
 
+const sanitiseKeyword = (x) => x.replace(':', '').replace('(', '').replace(')', '').toLowerCase();
+
 function getObjectFromLine(line, group, subgroup) {
     const [head, tail] = line.split('; fully-qualified     # ')
     const code = head.trim()
     const [emoji, since, ...rest] = tail.split(' ')
-    const description = rest.join(' ')
-    return { code, emoji, since, description, group, subgroup }
+    const keywords = rest.map(sanitiseKeyword)
+    return { code, emoji, since, keywords, group, subgroup }
 }
 
 function getGroupName(line, groupType) {
     return line.split(groupType)[1]
 }
 
-async function processLineByLine() {
+async function convertTXTtoJSON() {
     const fileStream = fs.createReadStream('emoji-test.txt');
     let group = 'N/A';
     let subgroup = 'N/A';
@@ -69,7 +71,7 @@ async function processLineByLine() {
     }
 
     // only different versions, sorted
-    data.versions = Array.from(new Set(data.versions)).sort(comparePartials);
+    data.versions = Array.from(new Set(data.versions)).sort(sortVersions);
 
     fs.writeFile("emoji.json", JSON.stringify(data), function (err) {
         if (err) throw err;
@@ -78,4 +80,4 @@ async function processLineByLine() {
     );
 }
 
-processLineByLine();
+convertTXTtoJSON();
