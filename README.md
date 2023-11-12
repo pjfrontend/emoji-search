@@ -1,7 +1,8 @@
 # emoji-search
+https://pjfrontend.github.io/emoji-search/
 
 ## goals:
-- [ ] list emojiby group, subgroup and unicode version
+- [ ] list emoji by group, subgroup and unicode version
 - [ ] search emoji by keyword
 - [ ] paste emoji to clipboard
 
