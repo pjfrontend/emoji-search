@@ -2,7 +2,7 @@ import React from 'react';
 import {HashRouter, Route, Routes} from 'react-router-dom';
 import {createRoot} from 'react-dom/client';
 import './index.css';
-import {IndexPage} from './components/IndexPage';
+import {IndexPage} from './pages/IndexPage';
 
 const container = document.getElementById('app');
 const root = createRoot(container!);
