@@ -47,11 +47,8 @@ async function convertTXTtoJSON() {
         input: fileStream,
         crlfDelay: Infinity
     });
-    // Note: we use the crlfDelay option to recognize all instances of CR LF
-    // ('\r\n') in input.txt as a single line break.
 
     for await (const line of rl) {
-        // console.log(`Line from file: ${line}`);
         if (line.includes('# group: ')) {
             group = getGroupName(line, '# group: ');
             data.groups[group] = []
