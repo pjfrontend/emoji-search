@@ -19,7 +19,7 @@ function sortVersions(a, b) {
     }
 }
 
-const sanitiseKeyword = (x) => x.replace(':', '').replace('(', '').replace(')', '').toLowerCase();
+const sanitiseKeyword = (x) => x.replace(':', '').replace('(', '').replace(')', '').replace('’',"'").toLowerCase();
 
 function getObjectFromLine(line, group, subgroup) {
     const [head, tail] = line.split('; fully-qualified     # ')
@@ -38,7 +38,7 @@ async function convertTXTtoJSON() {
     let group = 'N/A';
     let subgroup = 'N/A';
     const data = {
-        emojis: [],
+        emojis: {},
         groups: {},
         versions: [],
     };
@@ -64,7 +64,7 @@ async function convertTXTtoJSON() {
         }
         if (line.includes('; fully-qualified')) {
             const obj = getObjectFromLine(line, group, subgroup)
-            data.emojis.push(obj);
+            data.emojis[obj.emoji] = obj
             data.versions.push(obj.since)
             // console.log(`Line from file: ${JSON.stringify(obj)}`);
         }
