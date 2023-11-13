@@ -1,22 +1,30 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
 
 export function SelectVersion() {
   const {versions} = useEmojiData();
-  // TODO: send values somewhere
+  const navigate = useNavigate();
   return (
-    <form>
-      <fieldset>
-        <legend>Versions</legend>
-        {versions.map((v) => (
-          <div key={v}>
-            <input type="checkbox" name="versions" value={v} id={v} />
-            <label htmlFor={v} style={{fontFamily: 'sans-serif'}}>
-              {v}
-            </label>
-          </div>
-        ))}
-      </fieldset>
-    </form>
+    <fieldset
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}
+    >
+      <legend>Versions</legend>
+      {versions.map((v) => (
+        <button
+          key={v}
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(`/version/${v.replace('.', '-')}`);
+          }}
+        >
+          {v}
+        </button>
+      ))}
+    </fieldset>
   );
 }

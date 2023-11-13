@@ -1,33 +1,42 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
 
 export function SelectGroup() {
   const {groups} = useEmojiData();
-  // TODO: send values somewhere
-  console.log(groups);
+  const navigate = useNavigate();
   return (
-    <form>
-      <fieldset>
-        <legend>Groups</legend>
-        {Object.keys(groups).map((g) => (
-          <div key={g}>
-            <input type="checkbox" name="groups" value={g} id={g} />
-            <label htmlFor={g} style={{fontFamily: 'sans-serif'}}>
-              {g}
-            </label>
-            <ul>
-              {groups[g].map((s) => (
-                <li key={s}>
-                  <input type="checkbox" name="groups" value={s} id={s} />
-                  <label htmlFor={s} style={{fontFamily: 'sans-serif'}}>
-                    {s}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </fieldset>
-    </form>
+    <fieldset
+      style={{
+        display: 'flex',
+        flexFlow: 'wrap',
+      }}
+    >
+      <legend>Groups</legend>
+      {Object.keys(groups).map((g) => (
+        <fieldset
+          key={g}
+          style={{
+            display: 'flex',
+            flexFlow: 'column',
+          }}
+        >
+          <legend>{g}</legend>
+          {groups[g].map((s) => (
+            <button
+              key={s}
+              type="button"
+              style={{marginBottom: '0.5rem'}}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(`/group/${s}`);
+              }}
+            >
+              {s}
+            </button>
+          ))}
+        </fieldset>
+      ))}
+    </fieldset>
   );
 }

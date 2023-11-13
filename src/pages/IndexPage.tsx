@@ -8,8 +8,8 @@ export function IndexPage() {
   return (
     <>
       <h1>EM😀JI Search🏴󠁧󠁢󠁥󠁮󠁧󠁿</h1>
-      <SelectVersion />
       <SelectGroup />
+      <SelectVersion />
     </>
   );
 }
