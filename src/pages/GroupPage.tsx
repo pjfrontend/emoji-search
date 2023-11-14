@@ -3,5 +3,9 @@ import {useParams} from 'react-router-dom';
 
 export function GroupPage() {
   const {subgroup} = useParams();
-  return <>subgroup {subgroup} </>;
+  return (
+    <>
+      <h1>subgroup {subgroup}</h1>{' '}
+    </>
+  );
 }
