@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const readline = require('readline');
@@ -19,7 +20,14 @@ function sortVersions(a, b) {
 }
 
 const sanitiseKeyword = (x) =>
-  x.replace(':', '').replace('(', '').replace(')', '').replace('’', "'").toLowerCase();
+  x
+    .replace(':', '')
+    .replace('(', '')
+    .replace(')', '')
+    .replace('’', "'")
+    .replace('“', '')
+    .replace('”', '')
+    .toLowerCase();
 
 function getObjectFromLine(line, group, subgroup) {
   const [head, tail] = line.split('; fully-qualified     # ');
@@ -64,7 +72,6 @@ async function convertTXTtoJSON() {
       const obj = getObjectFromLine(line, group, subgroup);
       data.emojis[obj.emoji] = obj;
       data.versions.push(obj.since);
-      // eslint-disable-next-line guard-for-in
       for (const kw of obj.keywords) {
         data.keywords.push(kw);
       }
@@ -75,11 +82,44 @@ async function convertTXTtoJSON() {
   // only different versions, sorted
   data.versions = Array.from(new Set(data.versions)).sort(sortVersions);
   // unique keywords
-  data.keywords = Array.from(new Set(data.keywords));
+  data.keywords = Array.from(new Set(data.keywords)).sort();
 
   fs.writeFile('emoji.json', JSON.stringify(data), (err) => {
     if (err) throw err;
-    console.log('complete');
+    console.log('emoji.json written');
+  });
+
+  // now let's precalculate possible searches
+  const reverseLookup = {
+    subgroups: {},
+    versions: {},
+    keywords: {},
+  };
+  for (const e in data.emojis) {
+    const obj = data.emojis[e];
+    if (Object.hasOwn(reverseLookup.versions, obj.since)) {
+      reverseLookup.versions[obj.since].push(e);
+    } else {
+      reverseLookup.versions[obj.since] = [e];
+    }
+    if (Object.hasOwn(reverseLookup.subgroups, obj.subgroup)) {
+      reverseLookup.subgroups[obj.subgroup].push(e);
+    } else {
+      reverseLookup.subgroups[obj.subgroup] = [e];
+    }
+    for (const kw of obj.keywords) {
+      const safeKeyword = sanitiseKeyword(kw);
+      if (Object.hasOwn(reverseLookup.keywords, safeKeyword)) {
+        reverseLookup.keywords[safeKeyword].push(e);
+      } else {
+        reverseLookup.keywords[safeKeyword] = [e];
+      }
+    }
+  }
+
+  fs.writeFile('lookup.json', JSON.stringify(reverseLookup), (err) => {
+    if (err) throw err;
+    console.log('lookup.json written');
   });
 }
 
