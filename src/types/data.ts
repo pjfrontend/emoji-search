@@ -1,7 +1,3 @@
-export interface Dictionary<T> {
-  [Key: string]: T;
-}
-
 export interface EmojiInfo {
   code: string;
   since: string;
@@ -13,6 +9,6 @@ export interface EmojiInfo {
 
 export interface EmojiData {
   versions: string[];
-  groups: Dictionary<string[]>;
-  emojis: Dictionary<EmojiInfo>;
+  groups: Record<string, string[]>;
+  emojis: Record<string, EmojiInfo>;
 }
