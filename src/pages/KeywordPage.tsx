@@ -1,31 +1,32 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
+import {EmojiButton} from '../components/EmojiButton';
+import {SelectVersion} from '../components/SelectVersion';
 import {SelectGroup} from '../components/SelectGroup';
 import {SelectKeyword} from '../components/SelectKeyword';
-import {SelectVersion} from '../components/SelectVersion';
-import {EmojiButton} from '../components/EmojiButton';
 
-export function VersionPage() {
-  const {version} = useParams();
-  const sanitisedVersion = version?.replace('-', '.') || '';
+export function KeywordPage() {
+  const {keyword} = useParams();
   const {reverseLookup} = useEmojiData();
+  const safeList = reverseLookup.keywords[keyword || ''];
   return (
-    <div key={version}>
-      <h1>version {sanitisedVersion} </h1>
-      <SelectVersion />
+    <div key={keyword}>
+      <h1>keyword {keyword}</h1>
       <div
         style={{
           display: 'flex',
           flexFlow: 'wrap',
         }}
       >
-        {reverseLookup.versions[sanitisedVersion].map((e) => {
+        {safeList?.map((e) => {
           return <EmojiButton key={e} emoji={e} />;
         })}
+        {!safeList && <div>Nothing to display</div>}
       </div>
-      <SelectGroup />
       <SelectKeyword />
+      <SelectGroup />
+      <SelectVersion />
     </div>
   );
 }

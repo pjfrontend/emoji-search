@@ -10,7 +10,7 @@ export function EmojiButton({emoji}: {emoji: string}) {
         e.preventDefault();
         navigate(`/emoji/${emoji}`);
       }}
-      style={{textDecoration: 'none'}}
+      style={{textDecoration: 'none', fontSize: '4rem'}}
     >
       {emoji}
     </a>

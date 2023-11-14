@@ -27,6 +27,7 @@ const sanitiseKeyword = (x) =>
     .replace('’', "'")
     .replace('“', '')
     .replace('”', '')
+    .replace(',', '')
     .toLowerCase();
 
 function getObjectFromLine(line, group, subgroup) {
