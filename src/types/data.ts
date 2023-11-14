@@ -9,6 +9,7 @@ export interface EmojiInfo {
 
 export interface EmojiData {
   versions: string[];
+  keywords: string[];
   groups: Record<string, string[]>;
   emojis: Record<string, EmojiInfo>;
 }
