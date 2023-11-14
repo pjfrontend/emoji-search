@@ -19,7 +19,7 @@ export function EmojiPage() {
           alignItems: 'center',
         }}
       >
-        <div style={{fontSize: '8rem'}}>{emojiObj.emoji}</div>
+        <div style={{fontSize: '10rem'}}>{emojiObj.emoji}</div>
         <div
           style={{
             fontFamily: 'sans-serif',
