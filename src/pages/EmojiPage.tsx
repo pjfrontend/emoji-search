@@ -21,7 +21,6 @@ export function EmojiPage() {
           alignItems: 'center',
         }}
       >
-        {/* <div style={{fontSize: '10rem'}}>{emojiObj.emoji}</div> */}
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <a
             href="."
