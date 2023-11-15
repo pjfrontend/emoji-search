@@ -7,6 +7,7 @@ https://pjfrontend.github.io/emoji-search/
 - [ ] paste emoji to clipboard
 - [ ] optimise for mobile
 - [ ] perhaps add text search
+- [ ] add the ability to swap between google and apple emoji fonts on-the-fly
 
 ## links:
 - https://unicode.org/emoji/charts/full-emoji-list.html

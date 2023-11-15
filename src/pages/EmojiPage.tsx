@@ -4,9 +4,11 @@ import {useEmojiData} from '../hooks/useEmojiData';
 import {SelectGroup} from '../components/SelectGroup';
 import {SelectKeyword} from '../components/SelectKeyword';
 import {SelectVersion} from '../components/SelectVersion';
+import {useScrollToTop} from '../hooks/useScrollToTop';
 
 export function EmojiPage() {
   const {emoji} = useParams();
+  useScrollToTop(emoji);
   const {emojis} = useEmojiData();
   const navigate = useNavigate();
   const emojiObj = emojis[emoji || ''];

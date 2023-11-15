@@ -5,19 +5,23 @@ import {EmojiButton} from '../components/EmojiButton';
 import {SelectVersion} from '../components/SelectVersion';
 import {SelectGroup} from '../components/SelectGroup';
 import {SelectKeyword} from '../components/SelectKeyword';
+import {useScrollToTop} from '../hooks/useScrollToTop';
+import {NothingToDisplay} from '../components/NothingToDisplay';
 
 export function KeywordPage() {
   const {keyword} = useParams();
+  useScrollToTop(keyword);
   const {reverseLookup} = useEmojiData();
   const navigate = useNavigate();
   const safeList = reverseLookup.keywords[keyword || ''];
 
   useEffect(() => {
+    if (safeList.length !== 1) {
+      return;
+    }
     // for better user experience, if there's only one item in the list
     // navigate to the emoji page straight away
-    if (safeList.length === 1) {
-      navigate(`/emoji/${safeList[0]}`);
-    }
+    navigate(`/emoji/${safeList[0]}`);
   }, [safeList.length]);
 
   return (
@@ -32,7 +36,7 @@ export function KeywordPage() {
         {safeList?.map((e) => {
           return <EmojiButton key={e} emoji={e} />;
         })}
-        {!safeList && <div>Nothing to display</div>}
+        {!safeList && <NothingToDisplay />}
       </div>
       <SelectKeyword />
       <SelectGroup />

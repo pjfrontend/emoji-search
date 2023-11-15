@@ -5,9 +5,12 @@ import {EmojiButton} from '../components/EmojiButton';
 import {SelectVersion} from '../components/SelectVersion';
 import {SelectGroup} from '../components/SelectGroup';
 import {SelectKeyword} from '../components/SelectKeyword';
+import {useScrollToTop} from '../hooks/useScrollToTop';
+import {NothingToDisplay} from '../components/NothingToDisplay';
 
 export function GroupPage() {
   const {subgroup} = useParams();
+  useScrollToTop(subgroup);
   const {reverseLookup} = useEmojiData();
   const safeList = reverseLookup.subgroups[subgroup || ''];
   return (
@@ -22,7 +25,7 @@ export function GroupPage() {
         {safeList?.map((e) => {
           return <EmojiButton key={e} emoji={e} />;
         })}
-        {!safeList && <div>Nothing to display</div>}
+        {!safeList && <NothingToDisplay />}
       </div>
       <SelectGroup />
       <SelectVersion />
