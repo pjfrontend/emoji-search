@@ -21,7 +21,22 @@ export function EmojiPage() {
           alignItems: 'center',
         }}
       >
-        <div style={{fontSize: '10rem'}}>{emojiObj.emoji}</div>
+        {/* <div style={{fontSize: '10rem'}}>{emojiObj.emoji}</div> */}
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <a
+            href="."
+            onClick={(e) => {
+              e.preventDefault();
+              navigator.clipboard.writeText(emojiObj.emoji);
+            }}
+            style={{textDecoration: 'none', fontSize: '10rem'}}
+          >
+            {emojiObj.emoji}
+          </a>
+          <div style={{fontFamily: 'sans-serif'}}>
+            (Click on Emoji to copy it to the clipboard)
+          </div>
+        </div>
         <div
           style={{
             fontFamily: 'sans-serif',

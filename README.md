@@ -4,10 +4,9 @@ https://pjfrontend.github.io/emoji-search/
 ## goals:
 - [x] list emoji by group, subgroup and unicode version
 - [x] search emoji by keyword
-- [ ] paste emoji to clipboard
-- [ ] optimise for mobile
+- [x] paste emoji to clipboard
 - [ ] perhaps add text search
-- [ ] add the ability to swap between google and apple emoji fonts on-the-fly
+- [ ] optimise for mobile
 
 ## links:
 - https://unicode.org/emoji/charts/full-emoji-list.html
