@@ -15,7 +15,7 @@ export function KeywordPage() {
   const safeList = reverseLookup.keywords[keyword || ''];
 
   return (
-    <div key={keyword}>
+    <div key={JSON.stringify(safeList)}>
       <h1>keyword {keyword}</h1>
       <div
         style={{

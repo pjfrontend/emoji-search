@@ -14,7 +14,7 @@ export function GroupPage() {
   const {reverseLookup} = useEmojiData();
   const safeList = reverseLookup.subgroups[subgroup || ''];
   return (
-    <div key={subgroup}>
+    <div key={JSON.stringify(safeList)}>
       <h1>subgroup {subgroup}</h1>
       <div
         style={{
