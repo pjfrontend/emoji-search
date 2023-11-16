@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import React from 'react';
+import {useParams} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
 import {EmojiButton} from '../components/EmojiButton';
 import {SelectVersion} from '../components/SelectVersion';
@@ -12,17 +12,7 @@ export function KeywordPage() {
   const {keyword} = useParams();
   useScrollToTop(keyword);
   const {reverseLookup} = useEmojiData();
-  const navigate = useNavigate();
   const safeList = reverseLookup.keywords[keyword || ''];
-
-  useEffect(() => {
-    if (safeList.length !== 1) {
-      return;
-    }
-    // for better user experience, if there's only one item in the list
-    // navigate to the emoji page straight away
-    navigate(`/emoji/${safeList[0]}`);
-  }, [safeList.length]);
 
   return (
     <div key={keyword}>
