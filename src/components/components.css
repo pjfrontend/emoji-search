@@ -29,3 +29,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.select-group {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.select-subgroup {
+    display: flex;
+    flex-flow: column;
+}
+
+.subgroup-btn {
+    margin-bottom: 0.5rem;
+}
