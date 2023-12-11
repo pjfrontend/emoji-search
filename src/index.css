@@ -15,8 +15,13 @@ fieldset {
 
 h1 {
     background-color: cornflowerblue;
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 0.5rem;
-    color: antiquewhite;
-    font-family: 'NotoColorEmoji', sans-serif;
+    color: white;
+    font-family: sans-serif;
+}
+
+.h1-link {
+    text-decoration: none;
+    color: white;
 }

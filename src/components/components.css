@@ -3,7 +3,7 @@
     background-color: cornflowerblue;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    color: antiquewhite;
+    color: white;
 }
 
 .back-btn {
@@ -11,7 +11,7 @@
     background-color: cornflowerblue;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    color: antiquewhite;
+    color: white;
     border: none;
     cursor: pointer;
 }
@@ -57,7 +57,7 @@
 .mini-btn {
     background-color: cornflowerblue;
     border: none;
-    color: antiquewhite;
+    color: white;
     margin: 0.1rem;
     cursor: pointer;
 }

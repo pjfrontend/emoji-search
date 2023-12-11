@@ -8,7 +8,19 @@ export function IndexPage() {
   useScrollToTop();
   return (
     <>
-      <h1>EM😀JI Search🏴󠁧󠁢󠁥󠁮󠁧󠁿</h1>
+      <h1>
+        EM😀JI Search /{' '}
+        <span>
+          <a
+            href="https://github.com/pjfrontend"
+            target="_blank"
+            rel="noreferrer"
+            className="h1-link"
+          >
+            github.com/pjfrontend
+          </a>
+        </span>
+      </h1>
       <SelectVersion />
       <SelectGroup />
       <SelectKeyword />
