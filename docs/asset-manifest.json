@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/emoji-search/static/css/main.e6fa6190.css",
-    "main.js": "/emoji-search/static/js/main.0bc3c6e4.js",
+    "main.css": "/emoji-search/static/css/main.da42a55c.css",
+    "main.js": "/emoji-search/static/js/main.653fb6cb.js",
     "static/media/NotoColorEmoji-Regular.ttf": "/emoji-search/static/media/NotoColorEmoji-Regular.4f4d77767beef1733f26.ttf",
     "index.html": "/emoji-search/index.html",
-    "main.e6fa6190.css.map": "/emoji-search/static/css/main.e6fa6190.css.map",
-    "main.0bc3c6e4.js.map": "/emoji-search/static/js/main.0bc3c6e4.js.map"
+    "main.da42a55c.css.map": "/emoji-search/static/css/main.da42a55c.css.map",
+    "main.653fb6cb.js.map": "/emoji-search/static/js/main.653fb6cb.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6fa6190.css",
-    "static/js/main.0bc3c6e4.js"
+    "static/css/main.da42a55c.css",
+    "static/js/main.653fb6cb.js"
   ]
 }
