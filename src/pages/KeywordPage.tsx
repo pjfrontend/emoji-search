@@ -5,6 +5,7 @@ import {EmojiButton} from '../components/EmojiButton';
 import {useScrollToTop} from '../hooks/useScrollToTop';
 import {NothingToDisplay} from '../components/NothingToDisplay';
 import './pages.css';
+import {IndexButton} from '../components/IndexButton';
 
 export function KeywordPage() {
   const {keyword} = useParams();
@@ -21,6 +22,7 @@ export function KeywordPage() {
         })}
         {!safeList && <NothingToDisplay />}
       </div>
+      <IndexButton />
     </div>
   );
 }

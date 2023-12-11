@@ -1,11 +1,12 @@
 import React from 'react';
+import './components.css';
 
 export function NothingToDisplay() {
   return (
     <div>
-      <span style={{fontSize: '4rem'}}>⛔🙅🚧</span>
-      <h3 style={{fontFamily: 'sans-serif'}}>Nothing to display</h3>
-      <span style={{fontSize: '4rem'}}>🚧🙅⛔</span>
+      <span className="no-display-emoji">🚧🙅⛔</span>
+      <h3 className="no-display-text">Nothing to display</h3>
+      <span className="no-display-emoji">🚧🙅⛔</span>
     </div>
   );
 }

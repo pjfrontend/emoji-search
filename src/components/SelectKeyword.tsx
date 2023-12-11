@@ -1,18 +1,13 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
+import './components.css';
 
 export function SelectKeyword() {
   const {keywords} = useEmojiData();
   const navigate = useNavigate();
   return (
-    <fieldset
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        flexFlow: 'wrap',
-      }}
-    >
+    <fieldset className="select-keyword">
       <legend>Keywords</legend>
       {keywords.map((kw) => (
         <button

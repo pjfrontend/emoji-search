@@ -1,10 +1,8 @@
 import React from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
-import {SelectGroup} from '../components/SelectGroup';
-import {SelectKeyword} from '../components/SelectKeyword';
-import {SelectVersion} from '../components/SelectVersion';
 import {useScrollToTop} from '../hooks/useScrollToTop';
+import {IndexButton} from '../components/IndexButton';
 
 export function EmojiPage() {
   const {emoji} = useParams();
@@ -92,9 +90,7 @@ export function EmojiPage() {
           </div>
         </div>
       </div>
-      <SelectKeyword />
-      <SelectGroup />
-      <SelectVersion />
+      <IndexButton />
     </div>
   );
 }

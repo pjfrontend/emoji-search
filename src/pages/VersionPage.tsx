@@ -4,6 +4,7 @@ import {useEmojiData} from '../hooks/useEmojiData';
 import {EmojiButton} from '../components/EmojiButton';
 import {useScrollToTop} from '../hooks/useScrollToTop';
 import './pages.css';
+import {IndexButton} from '../components/IndexButton';
 
 export function VersionPage() {
   const {version} = useParams();
@@ -18,6 +19,7 @@ export function VersionPage() {
           return <EmojiButton key={e} emoji={e} />;
         })}
       </div>
+      <IndexButton />
     </div>
   );
 }

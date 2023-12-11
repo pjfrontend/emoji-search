@@ -5,6 +5,7 @@ import {EmojiButton} from '../components/EmojiButton';
 import {useScrollToTop} from '../hooks/useScrollToTop';
 import {NothingToDisplay} from '../components/NothingToDisplay';
 import './pages.css';
+import {IndexButton} from '../components/IndexButton';
 
 export function GroupPage() {
   const {subgroup} = useParams();
@@ -20,6 +21,7 @@ export function GroupPage() {
         })}
         {!safeList && <NothingToDisplay />}
       </div>
+      <IndexButton />
     </div>
   );
 }

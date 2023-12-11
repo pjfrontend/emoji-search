@@ -1,0 +1,31 @@
+.index-btn {
+    text-decoration: none;
+    background-color: cornflowerblue;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: antiquewhite;
+}
+
+.emoji-btn {
+    text-decoration: none;
+    font-size: 4rem;
+}
+
+.no-display-emoji {
+    font-size: 4rem;
+}
+
+.no-display-text {
+    font-family: sans-serif;
+}
+
+.select-keyword {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+}
+
+.select-version {
+    display: flex;
+    justify-content: space-between;
+}

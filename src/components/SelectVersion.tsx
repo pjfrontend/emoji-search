@@ -1,17 +1,13 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
+import './components.css';
 
 export function SelectVersion() {
   const {versions} = useEmojiData();
   const navigate = useNavigate();
   return (
-    <fieldset
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-      }}
-    >
+    <fieldset className="select-version">
       <legend>Versions</legend>
       {versions.map((v) => (
         <button
