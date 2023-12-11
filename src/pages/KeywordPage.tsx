@@ -15,7 +15,7 @@ export function KeywordPage() {
 
   return (
     <div key={JSON.stringify(safeList)}>
-      <h1>keyword {keyword}</h1>
+      <h1>{`Keyword: ${keyword}`}</h1>
       <div className="emoji-container">
         {safeList?.map((e) => {
           return <EmojiButton key={e} emoji={e} />;

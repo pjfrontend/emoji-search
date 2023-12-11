@@ -6,6 +6,15 @@
     color: antiquewhite;
 }
 
+.back-btn {
+    text-decoration: none;
+    background-color: cornflowerblue;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: antiquewhite;
+    border: none;
+}
+
 .emoji-btn {
     text-decoration: none;
     font-size: 4rem;
@@ -42,4 +51,12 @@
 
 .subgroup-btn {
     margin-bottom: 0.5rem;
+}
+
+.mini-btn {
+    background-color: cornflowerblue;
+    border: none;
+    color: antiquewhite;
+    margin: 0.1rem;
+    cursor: pointer;
 }

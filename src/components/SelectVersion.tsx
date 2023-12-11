@@ -13,6 +13,7 @@ export function SelectVersion() {
         <button
           key={v}
           type="button"
+          className="mini-btn"
           onClick={(e) => {
             e.preventDefault();
             navigate(`/version/${v.replace('.', '-')}`);

@@ -3,3 +3,29 @@
     flex-flow: wrap;
     margin-bottom: 1rem;
 }
+
+.sans-serif {
+    font-family: sans-serif;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+.emoji-focus {
+    text-decoration: none;
+    font-size: 10rem;
+}
+
+.emoji-focus-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emoji-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}

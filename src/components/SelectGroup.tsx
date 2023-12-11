@@ -16,7 +16,7 @@ export function SelectGroup() {
             <button
               key={s}
               type="button"
-              className="subgroup-btn"
+              className="subgroup-btn mini-btn"
               onClick={(e) => {
                 e.preventDefault();
                 navigate(`/group/${s}`);

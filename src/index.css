@@ -8,3 +8,15 @@ body {
     font-family: 'NotoColorEmoji';
     src: url(./fonts/NotoColorEmoji-Regular.ttf);
 }
+
+fieldset {
+    border-color: cornflowerblue;
+}
+
+h1 {
+    background-color: cornflowerblue;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: antiquewhite;
+    font-family: 'NotoColorEmoji', sans-serif;
+}

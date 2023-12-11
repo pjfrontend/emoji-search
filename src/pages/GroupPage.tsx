@@ -14,7 +14,7 @@ export function GroupPage() {
   const safeList = reverseLookup.subgroups[subgroup || ''];
   return (
     <div key={JSON.stringify(safeList)}>
-      <h1>subgroup {subgroup}</h1>
+      <h1>{`Subgroup: ${subgroup}`}</h1>
       <div className="emoji-container">
         {safeList?.map((e) => {
           return <EmojiButton key={e} emoji={e} />;

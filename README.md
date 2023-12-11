@@ -5,8 +5,7 @@ https://pjfrontend.github.io/emoji-search/
 - [x] list emoji by group, subgroup and unicode version
 - [x] search emoji by keyword
 - [x] paste emoji to clipboard
-- [ ] perhaps add text search
-- [ ] style it better
+- [x] style it better
 
 ## links:
 - https://unicode.org/emoji/charts/full-emoji-list.html

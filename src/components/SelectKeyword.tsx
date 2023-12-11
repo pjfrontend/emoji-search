@@ -13,6 +13,7 @@ export function SelectKeyword() {
         <button
           key={kw}
           type="button"
+          className="mini-btn"
           onClick={(e) => {
             e.preventDefault();
             navigate(`/keyword/${kw}`);

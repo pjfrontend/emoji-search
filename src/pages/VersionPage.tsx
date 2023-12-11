@@ -13,7 +13,7 @@ export function VersionPage() {
   const {reverseLookup} = useEmojiData();
   return (
     <div key={version}>
-      <h1>version {sanitisedVersion} </h1>
+      <h1>{`Version: ${sanitisedVersion}`}</h1>
       <div className="emoji-container">
         {reverseLookup.versions[sanitisedVersion].map((e) => {
           return <EmojiButton key={e} emoji={e} />;
