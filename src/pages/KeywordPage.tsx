@@ -2,11 +2,9 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
 import {EmojiButton} from '../components/EmojiButton';
-import {SelectVersion} from '../components/SelectVersion';
-import {SelectGroup} from '../components/SelectGroup';
-import {SelectKeyword} from '../components/SelectKeyword';
 import {useScrollToTop} from '../hooks/useScrollToTop';
 import {NothingToDisplay} from '../components/NothingToDisplay';
+import './pages.css';
 
 export function KeywordPage() {
   const {keyword} = useParams();
@@ -17,20 +15,12 @@ export function KeywordPage() {
   return (
     <div key={JSON.stringify(safeList)}>
       <h1>keyword {keyword}</h1>
-      <div
-        style={{
-          display: 'flex',
-          flexFlow: 'wrap',
-        }}
-      >
+      <div className="emoji-container">
         {safeList?.map((e) => {
           return <EmojiButton key={e} emoji={e} />;
         })}
         {!safeList && <NothingToDisplay />}
       </div>
-      <SelectKeyword />
-      <SelectGroup />
-      <SelectVersion />
     </div>
   );
 }

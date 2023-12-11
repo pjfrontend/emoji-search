@@ -1,11 +1,9 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import {useEmojiData} from '../hooks/useEmojiData';
-import {SelectGroup} from '../components/SelectGroup';
-import {SelectKeyword} from '../components/SelectKeyword';
-import {SelectVersion} from '../components/SelectVersion';
 import {EmojiButton} from '../components/EmojiButton';
 import {useScrollToTop} from '../hooks/useScrollToTop';
+import './pages.css';
 
 export function VersionPage() {
   const {version} = useParams();
@@ -15,19 +13,11 @@ export function VersionPage() {
   return (
     <div key={version}>
       <h1>version {sanitisedVersion} </h1>
-      <div
-        style={{
-          display: 'flex',
-          flexFlow: 'wrap',
-        }}
-      >
+      <div className="emoji-container">
         {reverseLookup.versions[sanitisedVersion].map((e) => {
           return <EmojiButton key={e} emoji={e} />;
         })}
       </div>
-      <SelectVersion />
-      <SelectGroup />
-      <SelectKeyword />
     </div>
   );
 }

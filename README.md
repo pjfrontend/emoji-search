@@ -6,7 +6,6 @@ https://pjfrontend.github.io/emoji-search/
 - [x] search emoji by keyword
 - [x] paste emoji to clipboard
 - [ ] perhaps add text search
-- [ ] optimise for mobile
 - [ ] style it better
 
 ## links:
