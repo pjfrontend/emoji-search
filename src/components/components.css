@@ -38,6 +38,7 @@
 .select-version {
     display: flex;
     justify-content: space-between;
+    flex-flow: wrap;
 }
 
 .select-group {
